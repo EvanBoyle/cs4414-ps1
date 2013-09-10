@@ -8,7 +8,6 @@ AppleWebKit/537.36: platform the browser uses
 (KHTML, like Gecko): browser platform details
 Chrome/29.0.1547.57: browser and version
 Safari/537.36: based on safari/version
-
 2. Rust aims to mitigate concurency bugs.  Changing a static variable could lead to problems in a multithreaded application, so this is considered unsafe.
 
 
