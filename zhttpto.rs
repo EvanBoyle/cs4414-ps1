@@ -73,7 +73,14 @@ unsafe fn new_connection_callback(new_conn :net_tcp::TcpNewConnection, _killch: 
 
 fn serve_page(path: ~str)->~str{
 	
+	let fileReaderTest: Result<@Reader, ~str> = io::file_reader(~PosixPath(path));
+	
+	if fileReaderTest.is_err(){
+		return ~"404 page not found";
+	}
+	
 	let fileReader: @Reader = io::file_reader(~PosixPath(path)).unwrap();
+	
 	let mut bytes: ~[u8] = ~[];
 	loop{
 		let byte: int = fileReader.read_byte();
